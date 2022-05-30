@@ -4,5 +4,5 @@ const obj = {
 };
 
 obj.input.addEventListener("input", (event) => {
-  obj.output.textContent = event.currentTarget.value === " " ? "Anonymous" : event.currentTarget.value;
+  obj.output.textContent = event.currentTarget.value === "" ? "Anonymous" : event.currentTarget.value;
 });

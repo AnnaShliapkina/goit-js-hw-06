@@ -1,20 +1,25 @@
+// const emailInputValue = document.querySelector('input[type="email"]');
+// const passwordInputValue = document.querySelector('input[type="password"]');
+
 const inputForm = document.querySelector(".login-form");
-const emailInputValue = document.querySelector('input[type="email"]');
-const passwordInputValue = document.querySelector('input[type="password"]');
-const buttonSubmit = document.querySelector("button");
 
-let user = {
-  email: "",
-  password: "",
-};
+inputForm.addEventListener("submit", handleSubmit);
 
-inputForm.addEventListener("submit", () => {
-  if (emailInputValue === "" || passwordInputValue === "") {
-    alert("Іи маєте запвнити всі поля!");
-  } else {
-    user.email = emailInputValue.value;
-    user.password = passwordInputValue.value;
+function handleSubmit(event) {
+  event.preventDefault();
+  const {
+    elements: { email, password },
+  } = event.currentTarget;
+
+  if (email.value === "" || password.value === "") {
+    return alert("Ви маєте заповнити всі поля!");
   }
-  return user;
-  inputForm.currentTarget.reset();
-});
+
+  const inputObj = {
+    email: email.value,
+    password: password.value,
+  };
+
+  console.log(inputObj);
+  event.currentTarget.reset();
+}
